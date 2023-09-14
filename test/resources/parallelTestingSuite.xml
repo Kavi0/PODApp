@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Parallel Test Suite" parallel="methods" thread-count="2">
+
+  <test name="MasterDataPage Test" >
+    <classes>
+		<class name="com.test.wrappers.GenericWrappers"/>
+      <class name="com.test.pages.ParallelTest">
+        <methods>
+          <include name="MasterDataPage" /> 
+          <include name="ShipmentCompletedStatus" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+  <test name="Remaining Tests">
+    <classes>
+      <class name="com.test.wrappers.GenericWrappers"/>
+      <class name="com.test.pages.ParallelTest">
+        <methods>
+			<include name="MasterDataPage" />
+          <include name="completedDateCalender" />
+          <include name="createdDateCalender" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+</suite>
